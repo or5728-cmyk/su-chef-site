@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="he" dir="rtl" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" content="notranslate">
+<title>מדיניות פרטיות - Su-Chef</title>
+<meta name="description" content="מדיניות הפרטיות של Su-Chef: איזה מידע נאסף, מה עושים איתו, נתוני Google, ואיך מוחקים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap">
+<style>
+/* Mockup for her approval (PRD-INTERVIEW §65.1). Nothing here is deployed.
+   Tokens are DESIGN.md §3.1 (the approved v2 look). Logical properties only. */
+:root{
+  --background:#FBFAF9;--card:#FFFFFF;--foreground:#171C26;--foreground-2:#3A4150;
+  --muted:#F4F3F0;--muted-foreground:#5C6370;--border:#EEEAE4;--input:#E2DCD4;
+  --gold:#E68619;--gold-2:#F5B23D;--gold-ink:#9C5B11;--gold-wash:#F9F0E7;
+  --navy:#171C26;--navy-line:#343B4A;--on-navy:#EDEBE6;--on-navy-muted:#A7ABB4;
+  --warning-surface:#FDF3E1;--warning-text:#92400E;--warning:#D97706;
+  --radius:12px;
+  --shadow-card:0 1px 3px 0 hsl(220 25% 12% / .06),0 1px 2px -1px hsl(220 25% 12% / .06);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#ECE9E4;color:var(--foreground);font-family:Heebo,system-ui,sans-serif;font-size:16px;line-height:1.55;overflow-wrap:anywhere}
+a{color:var(--gold-ink);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-ink);outline-offset:2px}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding-inline-start:20px}
+li{margin-block:6px}
+.num{font-variant-numeric:tabular-nums;unicode-bidi:isolate}
+.b{white-space:nowrap}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* ---- the mockup's own frame: not part of the site ---- */
+.note-wrap{max-width:860px;margin-inline:auto;padding:16px}
+.need{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:20px}
+.need .tag{display:inline-block;font-size:12px;font-weight:500;color:var(--muted-foreground);background:var(--muted);border-radius:999px;padding:1px 10px;margin-block-end:8px}
+.need h1{font-size:21px;font-weight:600;line-height:1.3}
+.need h2{font-size:16px;font-weight:600;margin-block:20px 6px}
+.need p,.need li{font-size:15px}
+.need .q{border-block-start:1px solid var(--border);padding-block:14px}
+.need .q:first-of-type{border-block-start:0;padding-block-start:4px}
+.need .q b{font-weight:600}
+.need .rec{color:var(--foreground-2);margin-block-start:4px}
+.need .lbl{font-size:13px;color:var(--muted-foreground)}
+.switch{display:flex;gap:4px;background:var(--muted);border-radius:10px;padding:4px;margin-block:16px 0;box-shadow:var(--shadow-card)}
+.switch button{flex:1;min-height:44px;border:0;border-radius:8px;background:transparent;font:inherit;font-size:15px;color:var(--muted-foreground);cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--card);color:var(--foreground);font-weight:600;box-shadow:var(--shadow-card)}
+.addr{font-size:13px;color:var(--muted-foreground);text-align:center;margin-block:10px 6px}
+
+/* ---- the site itself ---- */
+.site{max-width:860px;margin-inline:auto;background:var(--background);box-shadow:var(--shadow-card)}
+.top{background:var(--navy);color:var(--on-navy);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.lockup{display:inline-flex;align-items:center;gap:10px;font-size:18px;font-weight:500;color:var(--on-navy);text-decoration:none}
+.lockup svg{flex:none;color:var(--gold-2)}
+.lockup bdi{letter-spacing:.02em}
+.top nav{display:flex;gap:4px;flex-wrap:wrap}
+.top nav a{color:var(--on-navy-muted);text-decoration:none;font-size:14px;min-height:44px;display:inline-flex;align-items:center;padding-inline:10px;border-radius:8px}
+.top nav a[aria-current="page"]{color:var(--on-navy)}
+main{padding:28px 20px 8px}
+.hero{padding-block:12px 28px}
+.eyebrow{font-size:13px;color:var(--muted-foreground)}
+.hero h1{font-size:34px;font-weight:300;line-height:1.2;margin-block:6px 10px}
+.hero p{font-size:17px;color:var(--foreground-2);max-width:60ch}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:20px;margin-block-end:16px}
+.card h2{font-size:16px;font-weight:600;line-height:1.4;margin-block-end:8px}
+.rows{list-style:none;padding:0}
+.rows li{margin:0;padding-block:12px;border-block-start:1px solid var(--border)}
+.rows li:first-child{border-block-start:0;padding-block-start:4px}
+.rows b{font-weight:500;display:block}
+.rows span.t{color:var(--muted-foreground);font-size:14px}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding-inline:22px;border-radius:var(--radius);background-image:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);font-weight:600;text-decoration:none}
+.btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding-inline:20px;border-radius:var(--radius);border:1px solid var(--input);color:var(--foreground);font-weight:500;text-decoration:none;background:var(--card)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-block-start:14px}
+.meta{font-size:13px;color:var(--muted-foreground)}
+.missing{display:inline-block;background:var(--warning-surface);color:var(--warning-text);border:1px dashed var(--warning);border-radius:6px;padding:1px 8px;font-size:14px;font-weight:500}
+.plan{display:inline-block;background:var(--muted);color:var(--foreground-2);border-radius:6px;padding:1px 8px;font-size:13px}
+footer{border-block-start:1px solid var(--border);margin-block-start:12px;padding:18px 20px 28px;font-size:13px;color:var(--muted-foreground);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+footer a{color:var(--muted-foreground)}
+
+/* privacy page */
+.doc h1{font-size:24px;font-weight:500;line-height:1.3}
+.doc .updated{margin-block:4px 18px}
+.doc .card h2{font-size:17px}
+.doc .card p + p,.doc .card p + ul,.doc .card ul + p,.doc .card h3 + p{margin-block-start:8px}
+.doc h3{font-size:15px;font-weight:600;margin-block-start:16px}
+.toc{columns:2;column-gap:24px;font-size:14px;list-style:none;padding:0}
+.toc li{margin-block:0;break-inside:avoid}
+.toc a{display:inline-flex;min-height:36px;align-items:center}
+.en{direction:ltr;text-align:start;background:var(--muted);border-radius:10px;padding:14px 16px;margin-block-start:12px;font-size:14px}
+.en h3{margin-block-start:0}
+.en p{margin-block-start:8px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-block-start:8px}
+.tbl th,.tbl td{text-align:start;vertical-align:top;padding:10px 0;border-block-start:1px solid var(--border);padding-inline-end:12px}
+.tbl th{font-weight:500;color:var(--muted-foreground);font-size:13px;border-block-start:0}
+[hidden]{display:none!important}
+@media (max-width:560px){
+  .hero h1{font-size:30px}
+  .toc{columns:1}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block}
+  .tbl thead{display:none}
+  .tbl tr{border-block-start:1px solid var(--border);padding-block:10px}
+  .tbl td{border:0;padding:0}
+  .tbl td:first-child{font-weight:500}
+  .note-wrap{padding:12px}
+}
+@media (prefers-reduced-motion:no-preference){.card{animation:rise .35s ease both}}
+@keyframes rise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="site">
+  <header class="top">
+    <a class="lockup" href="/" aria-label="Su-Chef, לדף הבית">
+      <svg viewBox="0 0 100 100" width="30" height="30" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3"/><text x="50" y="53" text-anchor="middle" dominant-baseline="central" font-family="Heebo,system-ui,sans-serif" font-weight="400" font-size="52" fill="currentColor">S</text></svg>
+      <bdi class="b">Su-Chef</bdi>
+    </a>
+    <nav aria-label="ניווט">
+      <a href="/" data-nav="home">דף הבית</a>
+      <a href="/privacy" data-nav="privacy" aria-current="page">מדיניות פרטיות</a>
+    </nav>
+  </header>
+
+  <main id="page-privacy" class="doc">
+    <h1>מדיניות פרטיות</h1>
+    <p class="meta updated">עודכן לאחרונה: 12.10.2026</p>
+
+    <section class="card">
+      <p>המדיניות הזו מסבירה איזה מידע <bdi class="b">Su-Chef</bdi> שומרת, מה היא עושה איתו, עם מי הוא משותף ואיך מוחקים אותו. כתבנו אותה בשפה פשוטה. אם משהו לא ברור, כתבו לנו.</p>
+      <ul class="toc" style="margin-block-start:10px">
+        <li><a href="#p1"><span class="num">1</span>. מי אנחנו</a></li>
+        <li><a href="#p2"><span class="num">2</span>. על מי המדיניות חלה</a></li>
+        <li><a href="#p3"><span class="num">3</span>. איזה מידע נאסף</a></li>
+        <li><a href="#p4"><span class="num">4</span>. מה עושים עם המידע</a></li>
+        <li><a href="#p5"><span class="num">5</span>. נתוני Google</a></li>
+        <li><a href="#p6"><span class="num">6</span>. עם מי משתפים</a></li>
+        <li><a href="#p7"><span class="num">7</span>. איך המידע מוגן</a></li>
+        <li><a href="#p8"><span class="num">8</span>. כמה זמן שומרים</a></li>
+        <li><a href="#p9"><span class="num">9</span>. איך מוחקים ומנתקים</a></li>
+        <li><a href="#p10"><span class="num">10</span>. הזכויות שלכם</a></li>
+        <li><a href="#p11"><span class="num">11</span>. שינויים במדיניות</a></li>
+        <li><a href="#p12"><span class="num">12</span>. יצירת קשר</a></li>
+      </ul>
+    </section>
+
+    <section class="card" id="p1">
+      <h2><span class="num">1</span>. מי אנחנו</h2>
+      <p><bdi class="b">Su-Chef</bdi> היא מערכת באינטרנט לניהול עסקי קייטרינג בישראל: לקוחות, הצעות מחיר, אירועים, תשלומים והכנות במטבח. הכתובת שלה: <span class="ltr"><bdi class="b">su-chef.co.il</bdi></span>.</p>
+      <p>את <bdi class="b">Su-Chef</bdi> מפעילה <bdi class="b">Su-Chef</bdi> מבית <bdi class="b">LUMIÈRE</bdi>, עוסק מפתח תקווה.</p>
+    </section>
+
+    <section class="card" id="p2">
+      <h2><span class="num">2</span>. על מי המדיניות חלה</h2>
+      <ul>
+        <li><b>בעלי קייטרינג והצוות שלהם,</b> שנרשמים ל-<bdi class="b">Su-Chef</bdi> ועובדים בה.</li>
+        <li><b>הלקוחות של הקייטרינג,</b> שמקבלים ממנו קישור להצעת מחיר, בוחרים מנות וחותמים. את המידע עליהם מכניס הקייטרינג, והוא האחראי עליו. <bdi class="b">Su-Chef</bdi> שומרת אותו בשביל הקייטרינג ולפי ההוראות שלו. לקוח של קייטרינג שרוצה לראות, לתקן או למחוק מידע עליו פונה קודם כל לקייטרינג. אפשר לפנות גם אלינו, ונעביר את הפנייה.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="p3">
+      <h2><span class="num">3</span>. איזה מידע נאסף</h2>
+      <h3>מה שאתם מוסרים בהרשמה</h3>
+      <p>שם העסק, כתובת מייל וסיסמה (הסיסמה נשמרת מוצפנת, ואנחנו לא יכולים לקרוא אותה). מי שנכנס עם "המשך עם Google" מוסר לנו את השם, כתובת המייל ותמונת הפרופיל של חשבון Google שלו, ולא סיסמה.</p>
+      <h3>מה שאתם מכניסים על העסק</h3>
+      <p>פרטי העסק (שם משפטי, מספר עוסק, טלפון, מייל, לוגו, ופרטי בנק אם בחרתם להציג אותם במסמכים), המחירון, המנות, המתכונים, חומרי הגלם והעלויות, הספקים, הצעות המחיר, האירועים, רישום התשלומים שקיבלתם, ההגדרות, והמשתמשים בעסק וההרשאות שלהם.</p>
+      <h3>מה שאתם מכניסים על הלקוחות שלכם</h3>
+      <p>שם, טלפון, מייל, תאריך ומקום האירוע, מספר האורחים, המנות שנבחרו, הערות, ואלרגיות אם נמסרו. כשלקוח חותם על הצעה נשמרים: השם שלו, הטלפון והמייל אם מסר, החתימה שצייר, נוסח החוזה שעליו חתם, והמועד.</p>
+      <h3>קבצים</h3>
+      <p>לוגו, תמונות וסרטון של התפריט, מסמכים שהעליתם, וקבצים שהעליתם כדי לייבא נתונים (למשל אקסל של לקוחות או של מנות).</p>
+      <h3>מידע טכני</h3>
+      <p>כדי שתישארו מחוברים, הדפדפן שלכם שומר אצלו את פרטי הכניסה. אנחנו רושמים מתי משתמש היה פעיל לאחרונה, ושינויים שנעשו בנתוני העסק, כדי שתוכלו לראות מי שינה מה. אין באתר עוגיות פרסום, ואין מעקב שיווקי.</p>
+      <h3>מה לא נאסף</h3>
+      <p><bdi class="b">Su-Chef</bdi> לא שומרת מספרי כרטיסי אשראי.</p>
+    </section>
+
+    <section class="card" id="p4">
+      <h2><span class="num">4</span>. מה עושים עם המידע</h2>
+      <ul>
+        <li>מפעילים את המערכת בשבילכם: בונים הצעות, מציגים אותן ללקוחות שלכם, מחשבים עלויות ורווח, ומכינים רשימות ודוחות.</li>
+        <li>נותנים לכם תמיכה, ומתקנים תקלות.</li>
+        <li>שולחים לכם הודעות שקשורות לחשבון, כמו תזכורת לפני מחיקת נתונים.</li>
+      </ul>
+      <p><b>בינה מלאכותית, רק בשני מקומות, ורק כשאתם מפעילים אותם:</b> ייבוא נתונים מקובץ שהעליתם, ותרגום של הטקסטים של העסק לאנגלית. בשני המקרים התוכן שבחרתם נשלח לעיבוד אצל Anthropic (המודל Claude), ומה שחוזר מוצג לכם לאישור. נתוני Google לא נשלחים לשם.</p>
+      <p><b>מה אנחנו לא עושים:</b> לא מוכרים מידע, לא מעבירים אותו למפרסמים, ולא משתמשים בו כדי לפרסם לכם או ללקוחות שלכם.</p>
+    </section>
+
+    <section class="card" id="p5">
+      <h2><span class="num">5</span>. נתוני Google</h2>
+      <p>החיבור ליומן Google הוא רשות, וזמין למי שבחר בו. כל משתמש מחבר את חשבון Google שלו בעצמו, ומאשר את ההרשאות במסך של Google.</p>
+
+      <h3>אילו הרשאות <bdi class="b">Su-Chef</bdi> מבקשת, ולמה</h3>
+      <table class="tbl">
+        <thead><tr><th>ההרשאה</th><th>למה היא נחוצה</th></tr></thead>
+        <tbody>
+          <tr><td>ניהול אירועים ביומנים<br><span class="ltr meta">calendar.events</span></td><td>כדי לכתוב, לעדכן ולמחוק את האירועים של העסק ביומן. ואם בעל העסק בחר בכך, כדי לקרוא מהיומן הראשי שלו את האירועים של התקופה שמוצגת בלוח.</td></tr>
+          <tr><td>יומנים ש-<bdi class="b">Su-Chef</bdi> יצרה<br><span class="ltr meta">calendar.app.created</span></td><td>כדי ליצור יומן נפרד אחד, <bdi class="b">"Su-Chef - אירועים"</bdi>, ולנהל רק אותו.</td></tr>
+          <tr><td>כתובת המייל של החשבון<br><span class="ltr meta">openid, email</span></td><td>רק כדי להראות לכם במסך ההגדרות איזה חשבון מחובר.</td></tr>
+        </tbody>
+      </table>
+      <p><bdi class="b">Su-Chef</bdi> לא מבקשת גישה לכל היומן: היא לא קוראת ולא משנה הגדרות של יומן, שיתופים או את רשימת היומנים שלכם.</p>
+
+      <h3>מה <bdi class="b">Su-Chef</bdi> כותבת ביומן</h3>
+      <p>את האירועים של העסק, ימי ההכנה והקניות שלפניהם, וימים שחסמתם. כברירת מחדל ביומן הנפרד, ואם בחרתם, גם עותק ביומן הראשי שלכם. לפי ההגדרות של העסק ולפי ההרשאות של כל משתמש, אירוע יכול לכלול את שם הלקוח והטלפון שלו, הכתובת, מספר האורחים, אלרגיות, התפריט וסכומים. <bdi class="b">Su-Chef</bdi> מסמנת את האירועים שכתבה, כדי לזהות אותם. אירוע שלה ששונה או נמחק ביומן נכתב מחדש כמו שהוא ב-<bdi class="b">Su-Chef</bdi>.</p>
+
+      <h3>מה <bdi class="b">Su-Chef</bdi> קוראת מהיומן</h3>
+      <ul>
+        <li>את האירועים שהיא עצמה כתבה, כדי לבדוק שלא השתנו.</li>
+        <li>אם בעל העסק בחר להציג את היומן האישי בלוח: את האירועים מהיומן הראשי שלו, רק של התקופה שמוצגת בלוח. מוצגים רק אירועים שסומנו בצבעים שבחר (כברירת מחדל סגול ואפור). שאר הצוות רואה אותם כ"אירוע אישי", בלי הכותרת.</li>
+      </ul>
+
+      <h3>מה נשמר אצלנו</h3>
+      <ul>
+        <li>ההרשאות ש-Google נותנת (טוקנים), מוצפנות (<span class="ltr">AES-256-GCM</span>). המפתח נמצא רק בשרת, ואף משתמש, גם לא בעל החשבון, לא יכול לקרוא אותן.</li>
+        <li>כתובת המייל של חשבון Google שחובר.</li>
+        <li>על כל אירוע ש-<bdi class="b">Su-Chef</bdi> כתבה: המזהה שלו ב-Google וסימן שמאפשר לדעת אם השתנה.</li>
+        <li><b>התוכן של היומן האישי לא נשמר.</b> הוא נקרא ברגע שפותחים את הלוח, מוצג, ולא נכתב לשום מקום.</li>
+      </ul>
+
+      <h3>עם מי נתוני Google משותפים</h3>
+      <p>עם אף אחד. הם לא נמכרים, לא מועברים לצד שלישי, לא משמשים לפרסום, ולא משמשים לפיתוח, לשיפור או לאימון של מודלים של בינה מלאכותית. אנשים מהצוות שלנו לא קוראים אותם.</p>
+
+      <h3>ההתחייבות שלנו כלפי Google</h3>
+      <p>השימוש של <bdi class="b">Su-Chef</bdi> במידע שמתקבל מממשקי Google, והעברתו לכל אפליקציה אחרת, עומדים ב<a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">מדיניות נתוני המשתמש של Google API Services</a>, כולל דרישות השימוש המוגבל (Limited Use).</p>
+
+      <div class="en" lang="en" dir="ltr">
+        <h3>Google user data (English)</h3>
+        <p><b>What we access.</b> When a user chooses to connect Google Calendar, <bdi class="b">Su-Chef</bdi> requests <code>calendar.events</code>, <code>calendar.app.created</code>, <code>openid</code> and <code>email</code>. It reads the email address of the connected account, the events <bdi class="b">Su-Chef</bdi> itself wrote, and, only if the business owner turns this on, the events of the owner's primary calendar for the period shown on <bdi class="b">Su-Chef</bdi>'s board.</p>
+        <p><b>How we use it.</b> To create, update and delete the catering business's own events (bookings, preparation and shopping days, blocked days) in the user's calendar, by default in a separate calendar named <bdi class="b">"Su-Chef - אירועים"</bdi>, and to show the owner's personal events on the board, filtered by the colours the owner chose, so that a date is not double-booked. Other staff see such an event only as "personal event", without its title.</p>
+        <p><b>How we store and protect it.</b> Google's tokens are stored encrypted (AES-256-GCM); the key is held only by <bdi class="b">Su-Chef</bdi>'s server functions and no user can read the tokens. We store the connected account's email address and, for each event <bdi class="b">Su-Chef</bdi> wrote, its Google event id and a fingerprint of what was written. The content of the personal calendar is never stored. All traffic is encrypted in transit.</p>
+        <p><b>Sharing.</b> Google user data is not sold, not shared with or transferred to third parties, not used for advertising, and not read by our staff. Google Workspace APIs are not used to develop, improve, or train non-personalized AI and/or ML models.</p>
+        <p><b>Retention and deletion.</b> Tokens are kept until the user disconnects. Disconnecting (Settings, Google Calendar, Disconnect) revokes <bdi class="b">Su-Chef</bdi>'s access at Google and deletes the tokens and the event ids; the user chooses whether <bdi class="b">Su-Chef</bdi> also deletes the events it wrote. Access can also be removed at <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>. To ask for deletion of any data, write to <span class="missing" lang="he" dir="rtl">חסר: מייל ליצירת קשר</span>.</p>
+        <p><b>Limited Use.</b> <bdi class="b">Su-Chef</bdi>'s use and transfer of information received from Google APIs to any other app will adhere to <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+      </div>
+    </section>
+
+    <section class="card" id="p6">
+      <h2><span class="num">6</span>. עם מי משתפים</h2>
+      <p>אנחנו לא מוכרים מידע. הוא עובר רק לספקים שבלעדיהם המערכת לא פועלת, ורק לצורך הזה:</p>
+      <table class="tbl">
+        <thead><tr><th>הספק</th><th>מה הוא עושה</th></tr></thead>
+        <tbody>
+          <tr><td><span dir="ltr">Supabase</span></td><td>מסד הנתונים, הכניסה למערכת, אחסון הקבצים והשרת. כל המידע שלכם נשמר שם. מיקום השרתים: האיחוד האירופי (פרנקפורט, גרמניה).</td></tr>
+          <tr><td><span dir="ltr">Anthropic</span></td><td>עיבוד בבינה מלאכותית, רק בייבוא מקובץ, בתרגום לאנגלית, בקריאת קבלה מספק שצילמתם ובפירוק מתכון שהדבקתם, ורק של התוכן שבחרתם. לפי התנאים המסחריים של Anthropic, התוכן הזה לא משמש לאימון המודלים שלה.</td></tr>
+          <tr><td><span dir="ltr">Google</span></td><td>כניסה עם חשבון Google, ויומן Google למי שחיבר אותו. הגופן של האתר נטען מ-Google Fonts.</td></tr>
+          <tr><td>אחסון האתר</td><td><span dir="ltr">GitHub</span> (<span dir="ltr">GitHub Pages</span>). זה אחסון של דפי האתר בלבד; המידע שלכם לא נשמר שם.</td></tr>
+        </tbody>
+      </table>
+      <p>מעבר לזה נמסור מידע רק אם החוק מחייב אותנו, למשל לפי צו של בית משפט.</p>
+      <p><b>בין עסקים:</b> קייטרינג אחד לא רואה שום דבר של קייטרינג אחר. בתוך העסק, בעל הקייטרינג קובע בהגדרות מה כל משתמש רואה.</p>
+    </section>
+
+    <section class="card" id="p7">
+      <h2><span class="num">7</span>. איך המידע מוגן</h2>
+      <ul>
+        <li>כל התעבורה בין הדפדפן שלכם לבין <bdi class="b">Su-Chef</bdi> מוצפנת (<span class="ltr">HTTPS</span>).</li>
+        <li>כל עסק מופרד מהאחרים ברמת מסד הנתונים, ולא רק במסך.</li>
+        <li>סיסמאות נשמרות מוצפנות, וההרשאות של Google נשמרות מוצפנות במפתח שנמצא רק בשרת.</li>
+        <li>הקישור שלקוח מקבל להצעה הוא אישי וקשה לניחוש, ומציג רק את ההצעה שלו.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="p8">
+      <h2><span class="num">8</span>. כמה זמן שומרים</h2>
+      <ul>
+        <li><b>כל עוד החשבון פעיל:</b> המידע נשמר, כי אתם עובדים איתו.</li>
+        <li><b>מה שמחקתם:</b> לקוח, אירוע, הצעה או פריט שמחקתם עוברים לארכיון, ואפשר לשחזר אותם. כברירת מחדל הם נמחקים סופית אחרי <span class="num">30</span> יום, ואת מספר הימים קובעים בהגדרות.</li>
+        <li><b>ניסיון שלא המשיך:</b> <span class="num">5</span> ימים אחרי סוף הניסיון אפשר עוד לצפות בכל מה שהכנסתם. אחר כך המערכת נסגרת, והנתונים נשמרים <span class="num">60</span> יום: אפשר לחזור ולהמשיך מאותה נקודה, או להוריד את הכל. לפני שהם נמחקים נשלח לכם תזכורת במייל.</li>
+        <li><b>מנוי שבוטל:</b> המערכת ממשיכה לעבוד עד סוף התקופה ששולמה. אחר כך הנתונים נשמרים שנה, כדי שתוכלו לחזור ולהמשיך מאותה נקודה. חודש לפני המחיקה נשלח לכם מייל. מי שמבקש למחוק קודם, נמחק עד <span class="num">30</span> יום מהבקשה.</li>
+        <li><b>נתוני Google:</b> ההרשאות נשמרות עד שמנתקים את היומן. התוכן של היומן האישי לא נשמר בכלל.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="p9">
+      <h2><span class="num">9</span>. איך מוחקים ומנתקים</h2>
+      <h3>לנתק את יומן Google</h3>
+      <ol>
+        <li>ב-<bdi class="b">Su-Chef</bdi>: הגדרות, יומן Google, ניתוק.</li>
+        <li>בוחרים: "למחוק אותם ולנתק" (האירועים ש-<bdi class="b">Su-Chef</bdi> כתבה נמחקים מהיומן, והיומן הנפרד נמחק), או "להשאיר אותם ולנתק".</li>
+        <li><bdi class="b">Su-Chef</bdi> מבטלת את הגישה שלה אצל Google, ומוחקת אצלה את ההרשאות ואת המזהים של האירועים.</li>
+      </ol>
+      <p>אפשר גם להסיר את הגישה מהצד של Google, בכתובת <a class="ltr" href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>. מאותו רגע <bdi class="b">Su-Chef</bdi> לא יכולה לקרוא או לכתוב ביומן.</p>
+      <h3>למחוק פריט</h3>
+      <p>מוחקים אותו במערכת. הוא עובר לארכיון, ומשם אפשר למחוק אותו סופית.</p>
+      <h3>למחוק את כל החשבון</h3>
+      <p>כותבים לנו למייל <a class="ltr" href="mailto:or5728@gmail.com">or5728@gmail.com</a>. נמחק את החשבון ואת כל הנתונים של העסק עד <span class="num">30</span> יום מהפנייה. לפני המחיקה אפשר לבקש להוריד את כל מה שהכנסתם.</p>
+    </section>
+
+    <section class="card" id="p10">
+      <h2><span class="num">10</span>. הזכויות שלכם</h2>
+      <p>לפי חוק הגנת הפרטיות, זכותכם לעיין במידע שנשמר עליכם, ולבקש לתקן אותו או למחוק אותו. רוב המידע פתוח לכם במערכת עצמה. לכל בקשה אחרת כתבו לנו, ונענה.</p>
+    </section>
+
+    <section class="card" id="p11">
+      <h2><span class="num">11</span>. שינויים במדיניות</h2>
+      <p>אם נשנה את המדיניות, נעדכן את התאריך בראש הדף. אם ישתנה האופן שבו אנחנו משתמשים בנתוני Google, נודיע למי שחיבר יומן ונבקש את הסכמתו מחדש לפני שהשינוי ייכנס לתוקף.</p>
+    </section>
+
+    <section class="card" id="p12">
+      <h2><span class="num">12</span>. יצירת קשר</h2>
+      <p>מייל: <a class="ltr" href="mailto:or5728@gmail.com">or5728@gmail.com</a></p>
+      <p>כתובת: פתח תקווה</p>
+    </section>
+  </main>
+
+  <footer>
+    <span><bdi class="b">Su-Chef</bdi> מבית <bdi class="b">LUMIÈRE</bdi></span>
+    <span><a href="/">דף הבית</a> · <a href="/privacy">מדיניות פרטיות</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
