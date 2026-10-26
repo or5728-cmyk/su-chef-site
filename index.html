@@ -59,6 +59,7 @@ li{margin-block:6px}
 .top nav{display:flex;gap:4px;flex-wrap:wrap}
 .top nav a{color:var(--on-navy-muted);text-decoration:none;font-size:14px;min-height:44px;display:inline-flex;align-items:center;padding-inline:10px;border-radius:8px}
 .top nav a[aria-current="page"]{color:var(--on-navy)}
+.top nav a.enter{background-image:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);font-weight:600;padding-inline:18px}
 main{padding:28px 20px 8px}
 .hero{padding-block:12px 28px}
 .eyebrow{font-size:13px;color:var(--muted-foreground)}
@@ -120,6 +121,7 @@ footer a{color:var(--muted-foreground)}
     <nav aria-label="ניווט">
       <a href="/" data-nav="home" aria-current="page">דף הבית</a>
       <a href="/privacy" data-nav="privacy">מדיניות פרטיות</a>
+      <a class="enter" href="https://app.su-chef.co.il">כניסה</a>
     </nav>
   </header>
 
@@ -128,6 +130,9 @@ footer a{color:var(--muted-foreground)}
       <p class="eyebrow">מערכת לבעלי קייטרינג, בעברית</p>
       <h1><bdi class="b">Su-Chef</bdi></h1>
       <p><bdi class="b">Su-Chef</bdi> מלווה כל אירוע מהטלפון הראשון של הלקוח ועד השקל האחרון: הצעת מחיר, בחירת מנות, חוזה, תשלומים ורווח, במקום אחד.</p>
+      <div class="actions">
+        <a class="btn-gold" href="https://app.su-chef.co.il">כניסה</a>
+      </div>
     </section>
 
     <section class="card" aria-labelledby="h-what">
